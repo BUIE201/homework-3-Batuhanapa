@@ -97,7 +97,7 @@ void Insert(Node*& pRoot, Node* pNewNode)
 
 // My Study 
 
-void FindMaximumBranch(Node* pRoot,int BranchSum,int* Max, Node* pFind){
+int FindMaximumBranch(Node* pRoot,int BranchSum,int* Max, Node* pFind){
 	BranchSum += pRoot->i;
 
 	if (pRoot->pRight)
@@ -110,7 +110,7 @@ void FindMaximumBranch(Node* pRoot,int BranchSum,int* Max, Node* pFind){
 			pFind->i = pRoot->i;
 		}
 	}
-
+	return pFind->i;
 };
 
 vector<int> FindAndInsert(Node* pRoot, int A, vector<int> temp) {
@@ -134,8 +134,8 @@ void PrintMaximumBranch(Node* pRoot) {
 	int* Max = new int(0);
 	Node* pFind = new Node(0);
 	vector<int>vmax;
-FindMaximumBranch(pRoot, 0, Max,pFind);
-vmax = FindAndInsert(pRoot, pFind->i,vmax);
+
+vmax = FindAndInsert(pRoot,FindMaximumBranch(pRoot, 0, Max, pFind),vmax);
 cout << "Branch with the largest sum is: ";
 for (auto a : vmax)
 cout << a << " ";
