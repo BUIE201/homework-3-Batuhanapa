@@ -131,7 +131,7 @@ vector<int> FindAndInsert(Node* pRoot, int A, vector<int> temp) {
 }
 
 void PrintMaximumBranch(Node* pRoot) {
-	int* Max = new int(0);
+	int* Max = new int(INT_MIN);
 	Node* pFind = new Node(0);
 	vector<int>vmax;
 
